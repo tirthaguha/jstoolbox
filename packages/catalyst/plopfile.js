@@ -6,14 +6,16 @@ const rootDir = path.resolve(process.cwd());
 const __filename = fileURLToPath(import.meta.url);
 const currentDir = path.dirname(__filename);
 
-console.log("rootDir", rootDir);
-console.log("currentDir", currentDir);
+// console.log("rootDir", rootDir);
+// console.log("currentDir", currentDir);
 
 const packageJSON = JSON.parse(
-  fs.readFileSync(path.join(rootDir, "package.json"), "utf-8")
+  fs.readFileSync(path.join(rootDir, "package.json"), "utf-8"),
 );
 
 const { catalystConfig } = packageJSON;
+
+// console.log(catalystConfig);
 
 const defaultConfig = {
   lang: "js",
@@ -31,8 +33,6 @@ if (catalystConfig) {
     }
   }
 }
-
-console.log("currentDir", currentDir);
 
 const atomicChoice = [
   { name: "Atom", value: "Atoms" },
@@ -78,13 +78,13 @@ export default function (plop) {
           ...targetBasePath,
           "{{type}}",
           "{{pascalCase name}}",
-          "{{pascalCase name}}.{{lang}}"
+          "{{pascalCase name}}.{{lang}}",
         ),
         templateFile: path.join(
           currentDir,
           ...rootBasePath,
           "{{lang}}",
-          "Component.{{lang}}.hbs"
+          "Component.{{lang}}.hbs",
         ),
       },
       {
@@ -94,13 +94,13 @@ export default function (plop) {
           ...targetBasePath,
           "{{type}}",
           "{{pascalCase name}}",
-          "{{pascalCase name}}.css"
+          "{{pascalCase name}}.css",
         ),
         templateFile: path.join(
           currentDir,
           ...rootBasePath,
           "{{lang}}",
-          "Component.css.hbs"
+          "Component.css.hbs",
         ),
       },
       {
@@ -111,13 +111,13 @@ export default function (plop) {
           "{{type}}",
           "{{pascalCase name}}",
           "test",
-          "{{pascalCase name}}.test.{{lang}}"
+          "{{pascalCase name}}.test.{{lang}}",
         ),
         templateFile: path.join(
           currentDir,
           ...rootBasePath,
           "{{lang}}",
-          "Component.test.{{lang}}.hbs"
+          "Component.test.{{lang}}.hbs",
         ),
       },
       {
@@ -127,13 +127,13 @@ export default function (plop) {
           ...targetBasePath,
           "{{type}}",
           "{{pascalCase name}}",
-          "index.{{lang}}"
+          "index.{{lang}}",
         ),
         templateFile: path.join(
           currentDir,
           ...rootBasePath,
           "{{lang}}",
-          "index.{{lang}}.hbs"
+          "index.{{lang}}.hbs",
         ),
       },
       {
@@ -143,13 +143,13 @@ export default function (plop) {
           ...targetBasePath,
           "{{type}}",
           "{{pascalCase name}}",
-          "{{pascalCase name}}.stories.{{lang}}"
+          "{{pascalCase name}}.stories.{{lang}}",
         ),
         templateFile: path.join(
           currentDir,
           ...rootBasePath,
           "{{lang}}",
-          "Component.stories.{{lang}}.hbs"
+          "Component.stories.{{lang}}.hbs",
         ),
       },
       {
@@ -159,13 +159,13 @@ export default function (plop) {
           ...targetBasePath,
           "{{type}}",
           "{{pascalCase name}}",
-          "{{pascalCase name}}.mock.{{lang}}"
+          "{{pascalCase name}}.mock.{{lang}}",
         ),
         templateFile: path.join(
           currentDir,
           ...rootBasePath,
           "{{lang}}",
-          "Component.mock.{{lang}}.hbs"
+          "Component.mock.{{lang}}.hbs",
         ),
       },
     ],

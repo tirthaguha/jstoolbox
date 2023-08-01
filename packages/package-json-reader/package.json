@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "homepage": "https://github.com/tirthaguha/jstoolbox#readme",
+  "publishConfig": {
+    "access": "public"
   },
-  "author": "tirtha.guha@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tirthaguha/jstoolbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tirthaguha/jstoolbox/issues"
+  },
+  "author": "Tirtha Guha <tirtha.guha@gmail.com>",
   "license": "MIT"
 }
