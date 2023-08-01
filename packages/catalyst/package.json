@@ -14,7 +14,18 @@
     "component-generator",
     "react component generator"
   ],
-  "author": "tirtha.guha@gmail.com",
+  "homepage": "https://github.com/tirthaguha/jstoolbox#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tirthaguha/jstoolbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tirthaguha/jstoolbox/issues"
+  },
+  "author": "Tirtha Guha <tirtha.guha@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "minimist": "^1.2.8",

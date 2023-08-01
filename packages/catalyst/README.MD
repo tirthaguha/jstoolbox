@@ -1,6 +1,6 @@
 # @jstb/catalyst
 
-Functional Component Generator for React
+Configurable Component Generator for React
 
 ## Usage
 
@@ -32,7 +32,7 @@ Customizations are configured in `package.json` in the following format.
 "catalystConfig":{
   "lang":"ts"
   ...
-}
+},
 ```
 
 The options available are
