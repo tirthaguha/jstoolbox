@@ -8,5 +8,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "tirtha.guha@gmail.com",
-  "license": "ISC"
+  "license": "MIT"
 }

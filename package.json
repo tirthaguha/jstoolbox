@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Tools and Utilities for modern JS development",
   "scripts": {
-    "prettier":"prettier --write ./"
+    "prettier": "prettier --write ./"
   },
   "keywords": [
     "tools",
@@ -11,7 +11,7 @@
     "utilities"
   ],
   "author": "tirtha.guha@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "workspaces": [
     "packages/catalyst",
     "packages/package-json-reader"
