@@ -1,0 +1,16 @@
+import React from 'react'; 
+import PropTypes from 'prop-types'; 
+import styles from './{{pascalCase name}}.css';
+
+const {{pascalCase name}} = ({label}) => <div className={styles.root}>{label}</div>;
+
+
+{{pascalCase name}}.defaultProps = {
+  label: 'defaultProps Rendered',
+};
+
+{{pascalCase name}}.propTypes = {
+  label: PropTypes.string,
+};
+
+export default {{pascalCase name}};
