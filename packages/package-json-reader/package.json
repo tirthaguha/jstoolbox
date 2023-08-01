@@ -1,10 +1,14 @@
 {
   "name": "@jstb/package-json-reader",
   "version": "1.0.0",
-  "description": "",
+  "description": "Read Package JSON at Project Root Level in json format and extract configurations",
   "main": "index.js",
   "type": "module",
   "devDependencies": {},
+  "keywords": [
+    "packageJSON reader",
+    "read package json"
+  ],
   "homepage": "https://github.com/tirthaguha/jstoolbox#readme",
   "publishConfig": {
     "access": "public"
