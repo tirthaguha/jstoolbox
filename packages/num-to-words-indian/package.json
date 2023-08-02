@@ -12,6 +12,9 @@
   "keywords": [
     "number-to-words"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Tirtha Guha <tirtha.guha@gmail.com>",
   "license": "MIT",
   "bugs": {
