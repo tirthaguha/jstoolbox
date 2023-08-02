@@ -1,0 +1,21 @@
+{
+  "name": "@jstb/num-to-words-indian",
+  "version": "1.0.0",
+  "description": "Number to Words converter in Indian Number System",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tirthaguha/jstoolbox.git"
+  },
+  "keywords": [
+    "number-to-words"
+  ],
+  "author": "Tirtha Guha <tirtha.guha@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tirthaguha/jstoolbox/issues"
+  },
+  "homepage": "https://github.com/tirthaguha/jstoolbox#readme"
+}

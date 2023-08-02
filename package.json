@@ -14,7 +14,8 @@
   "license": "MIT",
   "workspaces": [
     "packages/catalyst",
-    "packages/package-json-reader"
+    "packages/package-json-reader",
+    "packages/num-to-words-indian"
   ],
   "devDependencies": {
     "prettier": "^3.0.0"
