@@ -2,9 +2,10 @@ import React from 'react';
 import {{pascalCase name}} from './';
 import defaultConfig from './{{pascalCase name}}.mock';
 
-export default {
+const BaseStory = {
   title: '{{type}}/{{pascalCase name}}',
   component: {{pascalCase name}}
 };
 
+export default BaseStory;
 export const Story = () => <{{pascalCase name}} {...defaultConfig} />;

@@ -1,10 +1,10 @@
 import React from 'react'; 
-import styles from './{{pascalCase name}}.css';
+import './{{pascalCase name}}.css';
 
 interface {{pascalCase name}}Props = {
   label: string;
 };
 
-const {{pascalCase name}}:React.FC<{{pascalCase name}}Props> = ({label}) => <div className={styles.root}>{label}</div>;
+const {{pascalCase name}}:React.FC<{{pascalCase name}}Props> = ({label}) => <div className="root">{label}</div>;
 
 export default {{pascalCase name}};
