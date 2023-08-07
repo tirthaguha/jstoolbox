@@ -52,6 +52,7 @@ const rootBasePath = ["plop-templates", "Component"];
 export default function (plop) {
   plop.setHelper("doubleSpace", () => "  ");
   plop.setHelper("lang", () => defaultConfig.lang);
+  plop.setHelper("ext", () => (defaultConfig.lang === "ts" ? "tsx" : "js"));
 
   plop.setGenerator("component", {
     description: "Create a Component",
@@ -78,7 +79,7 @@ export default function (plop) {
           ...targetBasePath,
           "{{type}}",
           "{{pascalCase name}}",
-          "{{pascalCase name}}.{{lang}}",
+          "{{pascalCase name}}.{{ext}}",
         ),
         templateFile: path.join(
           currentDir,
@@ -111,7 +112,7 @@ export default function (plop) {
           "{{type}}",
           "{{pascalCase name}}",
           "test",
-          "{{pascalCase name}}.test.{{lang}}",
+          "{{pascalCase name}}.test.{{ext}}",
         ),
         templateFile: path.join(
           currentDir,
@@ -143,7 +144,7 @@ export default function (plop) {
           ...targetBasePath,
           "{{type}}",
           "{{pascalCase name}}",
-          "{{pascalCase name}}.stories.{{lang}}",
+          "{{pascalCase name}}.stories.{{ext}}",
         ),
         templateFile: path.join(
           currentDir,
