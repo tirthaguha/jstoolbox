@@ -6,16 +6,11 @@ const rootDir = path.resolve(process.cwd());
 const __filename = fileURLToPath(import.meta.url);
 const currentDir = path.dirname(__filename);
 
-// console.log("rootDir", rootDir);
-// console.log("currentDir", currentDir);
-
 const packageJSON = JSON.parse(
   fs.readFileSync(path.join(rootDir, "package.json"), "utf-8"),
 );
 
 const { catalystConfig } = packageJSON;
-
-// console.log(catalystConfig);
 
 const defaultConfig = {
   lang: "js",
@@ -23,7 +18,7 @@ const defaultConfig = {
   skipStories: false,
   storyFormat: "script", //TODO
   styling: "css-modules", //TODO
-  targetBasePath: "src/components", //TODO
+  targetBasePath: "/src/newcomponents",
 };
 
 if (catalystConfig) {
@@ -46,7 +41,7 @@ const legoChoice = [
   { name: "Set", value: "Sets" },
 ];
 
-const targetBasePath = ["src", "components"];
+const targetBasePath = defaultConfig.targetBasePath.split("/");
 const rootBasePath = ["plop-templates", "Component"];
 
 export default function (plop) {
