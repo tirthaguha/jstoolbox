@@ -18,7 +18,7 @@ const defaultConfig = {
   skipStories: false,
   storyFormat: "script", //TODO
   styling: "css-modules", //TODO
-  targetBasePath: "/src/newcomponents",
+  targetBasePath: "/src/components",
 };
 
 if (catalystConfig) {
