@@ -20,7 +20,7 @@ const { catalystConfig } = packageJSON;
 const defaultConfig = {
   lang: "js",
   arch: "atomic",
-  storyFile: true, //TODO
+  skipStories: false,
   storyFormat: "script", //TODO
   styling: "css-modules", //TODO
   targetBasePath: "src/components", //TODO
@@ -139,6 +139,9 @@ export default function (plop) {
       },
       {
         type: "add",
+        skip: () => {
+          return defaultConfig.skipStories ? "Skipping Story file" : false;
+        },
         path: path.join(
           rootDir,
           ...targetBasePath,
