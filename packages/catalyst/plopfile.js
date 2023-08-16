@@ -13,7 +13,7 @@ const packageJSON = JSON.parse(
 const { catalystConfig } = packageJSON;
 
 const defaultConfig = {
-  lang: "js",
+  lang: "ts",
   arch: "atomic",
   skipStories: false,
   storyFormat: "script", //TODO
@@ -30,15 +30,15 @@ if (catalystConfig) {
 }
 
 const atomicChoice = [
-  { name: "Atom", value: "Atoms" },
-  { name: "Molecule", value: "Molecules" },
-  { name: "Organism", value: "Organisms" },
-  { name: "Template", value: "Templates" },
+  { name: "Atom", value: "atoms" },
+  { name: "Molecule", value: "molecules" },
+  { name: "Organism", value: "organisms" },
+  { name: "Template", value: "templates" },
 ];
 
 const legoChoice = [
-  { name: "Brick", value: "Bricks" },
-  { name: "Set", value: "Sets" },
+  { name: "Brick", value: "bricks" },
+  { name: "Set", value: "sets" },
 ];
 
 const targetBasePath = defaultConfig.targetBasePath.split("/");
@@ -73,7 +73,7 @@ export default function (plop) {
           rootDir,
           ...targetBasePath,
           "{{type}}",
-          "{{pascalCase name}}",
+          "{{kebabCase name}}",
           "{{pascalCase name}}.{{ext}}",
         ),
         templateFile: path.join(
@@ -89,7 +89,7 @@ export default function (plop) {
           rootDir,
           ...targetBasePath,
           "{{type}}",
-          "{{pascalCase name}}",
+          "{{kebabCase name}}",
           "{{pascalCase name}}.css",
         ),
         templateFile: path.join(
@@ -105,7 +105,7 @@ export default function (plop) {
           rootDir,
           ...targetBasePath,
           "{{type}}",
-          "{{pascalCase name}}",
+          "{{kebabCase name}}",
           "test",
           "{{pascalCase name}}.test.{{ext}}",
         ),
@@ -122,7 +122,7 @@ export default function (plop) {
           rootDir,
           ...targetBasePath,
           "{{type}}",
-          "{{pascalCase name}}",
+          "{{kebabCase name}}",
           "index.{{lang}}",
         ),
         templateFile: path.join(
@@ -141,7 +141,7 @@ export default function (plop) {
           rootDir,
           ...targetBasePath,
           "{{type}}",
-          "{{pascalCase name}}",
+          "{{kebabCase name}}",
           "{{pascalCase name}}.stories.{{ext}}",
         ),
         templateFile: path.join(
@@ -157,7 +157,7 @@ export default function (plop) {
           rootDir,
           ...targetBasePath,
           "{{type}}",
-          "{{pascalCase name}}",
+          "{{kebabCase name}}",
           "{{pascalCase name}}.mock.{{lang}}",
         ),
         templateFile: path.join(
