@@ -17,7 +17,7 @@ const defaultConfig = {
   arch: "atomic",
   skipStories: false,
   storyFormat: "script", //TODO
-  styling: "css-modules", //TODO
+  styling: "css", //TODO
   targetBasePath: "/src/components",
 };
 
