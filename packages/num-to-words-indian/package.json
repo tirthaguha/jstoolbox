@@ -1,6 +1,6 @@
 {
   "name": "@jstb/num-to-words-indian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Number to Words converter in Indian Number System",
   "main": "index.js",
   "type": "module",
