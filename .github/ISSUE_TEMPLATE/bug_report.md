@@ -20,6 +20,7 @@ Steps to reproduce the behavior:
 
 1. run `npm run generate`
 2.
+3.
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
@@ -29,7 +30,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
 
-- OS: [e.g. iOS]
+- OS: [e.g. Windows]
 - Version [e.g. 22]
 
 **Additional context**
