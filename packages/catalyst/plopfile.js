@@ -42,19 +42,19 @@ const legoChoice = [
 ];
 
 const targetBasePath = defaultConfig.targetBasePath.split("/");
-const rootBasePath = ["plop-templates", "Component"];
+const rootBasePath = ["components", "templates"];
 
 export default function (plop) {
   plop.setHelper("doubleSpace", () => "  ");
   plop.setHelper("lang", () => defaultConfig.lang);
   plop.setHelper("ext", () => (defaultConfig.lang === "ts" ? "tsx" : "js"));
 
-  plop.setGenerator("component", {
+  plop.setGenerator("Component", {
     description: "Create a Component",
     prompts: [
       {
         type: "list",
-        name: "type",
+        name: "category",
         message: "Type of Component",
         choices: () => {
           return defaultConfig.arch === "lego" ? legoChoice : atomicChoice;
@@ -72,7 +72,7 @@ export default function (plop) {
         path: path.join(
           rootDir,
           ...targetBasePath,
-          "{{type}}",
+          "{{category}}",
           "{{kebabCase name}}",
           "{{pascalCase name}}.{{ext}}",
         ),
@@ -88,7 +88,7 @@ export default function (plop) {
         path: path.join(
           rootDir,
           ...targetBasePath,
-          "{{type}}",
+          "{{category}}",
           "{{kebabCase name}}",
           "{{pascalCase name}}.css",
         ),
@@ -104,7 +104,7 @@ export default function (plop) {
         path: path.join(
           rootDir,
           ...targetBasePath,
-          "{{type}}",
+          "{{category}}",
           "{{kebabCase name}}",
           "test",
           "{{pascalCase name}}.test.{{ext}}",
@@ -121,7 +121,7 @@ export default function (plop) {
         path: path.join(
           rootDir,
           ...targetBasePath,
-          "{{type}}",
+          "{{category}}",
           "{{kebabCase name}}",
           "index.{{lang}}",
         ),
@@ -140,7 +140,7 @@ export default function (plop) {
         path: path.join(
           rootDir,
           ...targetBasePath,
-          "{{type}}",
+          "{{category}}",
           "{{kebabCase name}}",
           "{{pascalCase name}}.stories.{{ext}}",
         ),
@@ -156,7 +156,7 @@ export default function (plop) {
         path: path.join(
           rootDir,
           ...targetBasePath,
-          "{{type}}",
+          "{{category}}",
           "{{kebabCase name}}",
           "{{pascalCase name}}.mock.{{lang}}",
         ),
