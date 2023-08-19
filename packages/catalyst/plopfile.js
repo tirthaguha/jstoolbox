@@ -13,7 +13,7 @@ const packageJSON = JSON.parse(
 const { catalystConfig } = packageJSON;
 
 const defaultConfig = {
-  lang: "js",
+  lang: "ts",
   arch: "atomic",
   skipStories: false,
   storyFormat: "script", //TODO
