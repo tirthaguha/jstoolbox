@@ -1,25 +1,5 @@
-const packageJSON = JSON.parse(
-  fs.readFileSync(path.join(rootDir, "package.json"), "utf-8"),
-);
-
-const { catalystConfig } = packageJSON;
-
-const defaultConfig = {
-  lang: "js",
-  arch: "atomic",
-  skipStories: false,
-  storyFormat: "script", //TODO
-  styling: "css", //TODO
-  targetBasePath: "/src/components",
-};
-
-if (catalystConfig) {
-  for (const key in catalystConfig) {
-    if (Object.hasOwnProperty.call(catalystConfig, key)) {
-      defaultConfig[key] = catalystConfig[key];
-    }
-  }
-}
+import { getRootDir, getDefaultConfig } from "../utils/utils.js";
+import path from "node:path";
 
 const atomicChoice = [
   { name: "Atom", value: "atoms" },
@@ -33,10 +13,14 @@ const legoChoice = [
   { name: "Set", value: "sets" },
 ];
 
-const targetBasePath = defaultConfig.targetBasePath.split("/");
-const rootBasePath = ["components", "templates"];
+const rootDir = getRootDir();
+const defaultConfig = getDefaultConfig();
+const rootBasePath = [".", "components", "templates"];
+let targetBasePath = defaultConfig.targetBasePath.split("/");
+targetBasePath = [...targetBasePath, "components"];
+// console.log(defaultConfig);
 
-export default ComponentGenerator = {
+const ComponentGenerator = {
   description: "Create a Component",
   prompts: [
     {
@@ -64,7 +48,6 @@ export default ComponentGenerator = {
         "{{pascalCase name}}.{{ext}}",
       ),
       templateFile: path.join(
-        currentDir,
         ...rootBasePath,
         "{{lang}}",
         "Component.{{lang}}.hbs",
@@ -79,12 +62,7 @@ export default ComponentGenerator = {
         "{{kebabCase name}}",
         "{{pascalCase name}}.css",
       ),
-      templateFile: path.join(
-        currentDir,
-        ...rootBasePath,
-        "{{lang}}",
-        "Component.css.hbs",
-      ),
+      templateFile: path.join(...rootBasePath, "{{lang}}", "Component.css.hbs"),
     },
     {
       type: "add",
@@ -97,7 +75,6 @@ export default ComponentGenerator = {
         "{{pascalCase name}}.test.{{ext}}",
       ),
       templateFile: path.join(
-        currentDir,
         ...rootBasePath,
         "{{lang}}",
         "Component.test.{{lang}}.hbs",
@@ -113,7 +90,6 @@ export default ComponentGenerator = {
         "index.{{lang}}",
       ),
       templateFile: path.join(
-        currentDir,
         ...rootBasePath,
         "{{lang}}",
         "index.{{lang}}.hbs",
@@ -132,7 +108,6 @@ export default ComponentGenerator = {
         "{{pascalCase name}}.stories.{{ext}}",
       ),
       templateFile: path.join(
-        currentDir,
         ...rootBasePath,
         "{{lang}}",
         "Component.stories.{{lang}}.hbs",
@@ -148,7 +123,6 @@ export default ComponentGenerator = {
         "{{pascalCase name}}.mock.{{lang}}",
       ),
       templateFile: path.join(
-        currentDir,
         ...rootBasePath,
         "{{lang}}",
         "Component.mock.{{lang}}.hbs",
@@ -156,3 +130,5 @@ export default ComponentGenerator = {
     },
   ],
 };
+
+export default ComponentGenerator;

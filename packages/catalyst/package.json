@@ -4,7 +4,9 @@
   "description": "React Functional Component Generator in Atomic and Lego architecture in JavaScript and TypeScript",
   "main": "index.js",
   "scripts": {
-    "start": "plop"
+    "start": "plop",
+    "preversion": "npm run cleanup",
+    "cleanup": "rimraf ./src"
   },
   "bin": {
     "catalyst": "./index.js"
@@ -28,7 +30,11 @@
   "author": "Tirtha Guha <tirtha.guha@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@jstb/package-json-reader": "^1.0.0",
     "minimist": "^1.2.8",
     "plop": "^3.1.2"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.1"
   }
 }
