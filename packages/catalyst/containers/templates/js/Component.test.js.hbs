@@ -1,9 +1,9 @@
 import React from 'react';
-import Test from '../Test';
+import {{pascalCase name}} from '../{{pascalCase name}}';
 
-describe('Test suit', ()=>{
+describe('{{pascalCase name}} suit', ()=>{
   test('renders without error', ()=>{
-    render(<Test label={"Hello World"} />)
+    render(<{{pascalCase name}} label={"Hello World"} />)
     const textElement = screen.getByText("Hello World");
     expect(textElement).toBeInTheDocument();
   });
