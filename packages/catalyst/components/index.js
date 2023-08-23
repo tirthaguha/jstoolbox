@@ -16,8 +16,8 @@ const legoChoice = [
 const rootDir = getRootDir();
 const defaultConfig = getDefaultConfig();
 const rootBasePath = [".", "components", "templates"];
-const targetBasePath = defaultConfig.targetBasePath.split("/");
-
+let targetBasePath = defaultConfig.targetBasePath.split("/");
+targetBasePath = [...targetBasePath, "components"];
 // console.log(defaultConfig);
 
 const ComponentGenerator = {
