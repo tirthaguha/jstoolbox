@@ -8,7 +8,7 @@ const defaultConfig = {
   arch: "atomic",
   skipStories: false,
   storyFormat: "script", //TODO
-  styling: "css", //TODO
+  styling: "css",
   targetBasePath: "/src",
 };
 
