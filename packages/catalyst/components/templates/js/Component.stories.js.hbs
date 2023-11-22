@@ -3,7 +3,7 @@ import {{pascalCase name}} from './';
 import defaultConfig from './{{pascalCase name}}.mock';
 
 export default {
-  title: '{{type}}/{{pascalCase name}}',
+  title: '{{#if category}}{{pascalCase category}}/{{/if}}{{pascalCase name}}',
   component: {{pascalCase name}}
 };
 

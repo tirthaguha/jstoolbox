@@ -24,6 +24,9 @@ const ContainerGenerator = {
       choices: () => {
         return defaultConfig.arch === "lego" ? legoChoice : atomicChoice;
       },
+      when: () => {
+        return defaultConfig.arch !== "none";
+      },
     },
     {
       type: "input",
