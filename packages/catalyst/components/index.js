@@ -18,7 +18,6 @@ const defaultConfig = getDefaultConfig();
 const rootBasePath = [".", "components", "templates"];
 let targetBasePath = defaultConfig.targetBasePath.split("/");
 targetBasePath = [...targetBasePath, "components"];
-// console.log(defaultConfig);
 
 const ComponentGenerator = {
   description: "Create a Component",
@@ -60,7 +59,7 @@ const ComponentGenerator = {
         ...targetBasePath,
         "{{category}}",
         "{{kebabCase name}}",
-        "{{pascalCase name}}.css",
+        "{{pascalCase name}}.{{styleExt}}",
       ),
       templateFile: path.join(...rootBasePath, "{{lang}}", "Component.css.hbs"),
     },
