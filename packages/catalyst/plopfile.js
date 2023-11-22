@@ -7,6 +7,7 @@ export default function (plop) {
   plop.setHelper("doubleSpace", () => "  ");
   plop.setHelper("lang", () => defaultConfig.lang);
   plop.setHelper("ext", () => (defaultConfig.lang === "ts" ? "tsx" : "js"));
+  plop.setHelper("styleExt", () => defaultConfig.styling);
 
   plop.setGenerator("Component", ComponentGenerator);
   plop.setGenerator("Container", ContainerGenerator);
