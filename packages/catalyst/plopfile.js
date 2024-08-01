@@ -6,7 +6,7 @@ export default function (plop) {
   const defaultConfig = getDefaultConfig();
   plop.setHelper("doubleSpace", () => "  ");
   plop.setHelper("lang", () => defaultConfig.lang);
-  plop.setHelper("ext", () => (defaultConfig.lang === "ts" ? "tsx" : "js"));
+  plop.setHelper("ext", () => (defaultConfig.lang === "ts" ? "tsx" : "jsx"));
   plop.setHelper("styleExt", () => defaultConfig.styling);
 
   plop.setGenerator("Component", ComponentGenerator);
