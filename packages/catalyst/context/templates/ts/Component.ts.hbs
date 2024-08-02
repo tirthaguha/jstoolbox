@@ -1,0 +1,59 @@
+import {
+  createContext,
+  Reducer,
+  useReducer,
+  ReactNode,
+  Context,
+  Dispatch,
+} from "react";
+
+export interface IProvider {
+  children: ReactNode;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type TState = any;
+
+export interface IAction {
+  type: string;
+  data?: unknown;
+}
+
+interface IContext {
+  state: TState;
+  dispatch: Dispatch<IAction>;
+}
+
+const context_arr: { [key: string]: Context<IContext> } = {};
+
+const createContextProvider = (
+  displayName: string,
+  reducer: Reducer<TState, IAction>,
+  initialState: TState,
+) => {
+  const NewContext = createContext<IContext>({
+    state: initialState,
+    dispatch: ()=>{}
+  });
+  NewContext.displayName = displayName;
+  context_arr[displayName] = NewContext;
+
+  const WithProvider = ({ children }: IProvider) => {
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    return (
+      <NewContext.Provider value={{doubleCurlyOpen}} state, dispatch {{doubleCurlyClose}}>
+        {children}
+      </NewContext.Provider>
+    );
+  };
+  return WithProvider;
+};
+
+export const getContextByName = (name: string) => {
+  if (context_arr[name]) return context_arr[name];
+  throw new Error("Context not found");
+};
+
+export default createContextProvider;
