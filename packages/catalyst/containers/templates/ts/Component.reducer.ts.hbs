@@ -1,0 +1,20 @@
+
+const initialState = {
+  // Add your initial state here
+};
+
+export interface IAction {
+  type: string;
+  data?: any;
+}
+
+const {{pascalCase name}}Reducer = (state: State = initialState, action: Action) => {
+  switch (action.type) {
+    case '{{constantCase name}}_ACTION':
+      return { ...state};
+    default:
+      return state;
+  }
+};
+
+export default {{pascalCase name}}Reducer;
