@@ -33,6 +33,18 @@ const ContainerGenerator = {
       name: "name",
       message: "Name of the Container",
     },
+    {
+      type: "confirm",
+      name: "actions",
+      message: "Do you need actions with this container?",
+      choices: ["Yes", "No"],
+    },
+    {
+      type: "confirm",
+      name: "reducer",
+      message: "Do you need reducer with this container?",
+      choices: ["Yes", "No"],
+    },
   ],
   actions: [
     {
@@ -79,6 +91,42 @@ const ContainerGenerator = {
         ...rootBasePath,
         "{{lang}}",
         "index.{{lang}}.hbs",
+      ),
+    },
+    {
+      type: "add",
+      skip: (data) => {
+        return data.actions ? false : "Skipping Actions";
+      },
+      path: path.join(
+        rootDir,
+        ...targetBasePath,
+        "{{category}}",
+        "{{kebabCase name}}",
+        "{{pascalCase name}}.actions.{{lang}}",
+      ),
+      templateFile: path.join(
+        ...rootBasePath,
+        "{{lang}}",
+        "Component.actions.{{lang}}.hbs",
+      ),
+    },
+    {
+      type: "add",
+      skip: (data) => {
+        return data.reducer ? false : "Skipping Reducer";
+      },
+      path: path.join(
+        rootDir,
+        ...targetBasePath,
+        "{{category}}",
+        "{{kebabCase name}}",
+        "{{pascalCase name}}.reducer.{{lang}}",
+      ),
+      templateFile: path.join(
+        ...rootBasePath,
+        "{{lang}}",
+        "Component.reducer.{{lang}}.hbs",
       ),
     },
   ],
