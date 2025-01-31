@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "setup-repo": "index.js"
+    "kickstart": "index.js"
   },
   "devDependencies": {
     "inquirer": "^12.3.2"
@@ -13,7 +13,13 @@
   "scripts": {
     "test": "exit(0)"
   },
-  "author": "tirtha.guha@gmail.com",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/tirthaguha/jstoolbox/issues"
+  },
+  "author": "Tirtha Guha <tirtha.guha@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
