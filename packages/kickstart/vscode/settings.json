@@ -2,12 +2,11 @@
   "editor.formatOnSave": true,
   "cSpell.autoFormatConfigFile": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": "explicit",
-  //   "source.organizeImports": "always"
-  // },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "always"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cSpell.words": ["jstb"]
+  }
 }
