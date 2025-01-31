@@ -1,11 +1,27 @@
 import path from "node:path";
 import packageJSONConfig from "@jstb/package-json-reader";
+import { existsSync } from "node:fs";
 
 const catalystConfig = packageJSONConfig("catalystConfig");
 
+const getRootDir = () => {
+  return path.resolve(process.cwd());
+};
+
+const isTypeScript = () => {
+  const rootDir = getRootDir();
+  console.log(rootDir);
+
+  const tsConfigFileExists = existsSync(
+    path.join(rootDir, "tsconfig.json"),
+    "utf-8",
+  );
+  return tsConfigFileExists;
+};
+
 const defaultConfig = {
-  lang: "js",
-  arch: "atomic",
+  lang: isTypeScript() ? "ts" : "js",
+  arch: "none",
   skipStories: false,
   storyFormat: "script", //TODO
   styling: "css",
@@ -22,10 +38,6 @@ if (catalystConfig) {
 
 const getDefaultConfig = () => {
   return defaultConfig;
-};
-
-const getRootDir = () => {
-  return path.resolve(process.cwd());
 };
 
 export { getRootDir, getDefaultConfig };
