@@ -1,14 +1,14 @@
 {
   "name": "@jstb/kickstart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npx tool to add vscode settings, vscode extensions, prettier etc to a JS or TS Repository",
   "main": "index.js",
   "type": "module",
   "bin": {
     "kickstart": "index.js"
   },
-  "devDependencies": {
-    "inquirer": "^12.3.2"
+  "dependencies": {
+    "inquirer": "^12.3.3"
   },
   "scripts": {
     "test": "exit(0)"
