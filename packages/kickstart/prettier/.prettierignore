@@ -1,0 +1,7 @@
+# Ignore directories:
+build
+coverage
+node_modules
+
+# Ignore all files:
+**/*.html

@@ -1,0 +1,22 @@
+{
+  "name": "@jstb/kickstart",
+  "version": "1.0.0",
+  "description": "npx tool to add vscode settings, vscode extensions, prettier etc to a JS or TS Repository",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "setup-repo": "index.js"
+  },
+  "devDependencies": {
+    "inquirer": "^12.3.2"
+  },
+  "scripts": {
+    "test": "exit(0)"
+  },
+  "author": "tirtha.guha@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tirthaguha/jstoolbox.git"
+  }
+}

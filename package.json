@@ -15,7 +15,8 @@
   "workspaces": [
     "packages/catalyst",
     "packages/package-json-reader",
-    "packages/num-to-words-indian"
+    "packages/num-to-words-indian",
+    "packages/kickstart"
   ],
   "devDependencies": {
     "prettier": "^3.0.0"
