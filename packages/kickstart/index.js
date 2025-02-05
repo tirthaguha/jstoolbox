@@ -2,6 +2,7 @@
 
 import inquirer from "inquirer";
 import { copyFile, existsSync, mkdirSync } from "node:fs";
+import { fileURLToPath } from "url";
 import path from "node:path";
 
 inquirer
@@ -26,8 +27,11 @@ inquirer
     // Copy VSCode Settings and Extensions
     const { isVscode, isPrettier } = answers;
 
+    const sourceLocation = path.dirname(fileURLToPath(import.meta.url));
+    // console.log("sourceLocation", path.dirname(sourceLocation));
+
     if (isVscode) {
-      const sourceDir = path.join(import.meta.dirname, "vscode");
+      const sourceDir = path.join(sourceLocation, "vscode");
       const targetDir = path.join(process.cwd(), ".vscode");
       if (!existsSync(targetDir)) {
         mkdirSync(targetDir);
@@ -51,7 +55,7 @@ inquirer
     }
 
     if (isPrettier) {
-      const sourceDir = path.join(import.meta.dirname, "prettier");
+      const sourceDir = path.join(sourceLocation, "prettier");
       const targetDir = process.cwd();
       copyFile(
         path.join(sourceDir, ".prettier.json"),
