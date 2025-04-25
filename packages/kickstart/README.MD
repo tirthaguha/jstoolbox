@@ -12,7 +12,7 @@ This package provides tools and scripts to set up a new JavaScript/TypeScript re
 Run the following command in :
 
 ```bash
-npx kickstart
+npx @jstb/kickstart
 ```
 
 Or
@@ -20,8 +20,8 @@ Or
 Install as a global package and use it.
 
 ```bash
-npm i --global kickstart
-npm kickstart
+npm i --global @jstb/kickstart
+npm @jstb/kickstart
 ```
 
 Follow the prompts to configure your project.
