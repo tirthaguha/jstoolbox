@@ -1,3 +1,4 @@
+import { skip } from "node:test";
 import { getRootDir, getDefaultConfig } from "../utils/utils.js";
 import path from "node:path";
 
@@ -18,6 +19,7 @@ const defaultConfig = getDefaultConfig();
 const rootBasePath = [".", "components", "templates"];
 let targetBasePath = defaultConfig.targetBasePath.split("/");
 targetBasePath = [...targetBasePath, "components"];
+const { skipTests, skipStories } = defaultConfig;
 
 const ComponentGenerator = {
   description: "Create a Component",
@@ -68,6 +70,9 @@ const ComponentGenerator = {
     },
     {
       type: "add",
+      skip: (data) => {
+        return skipTests ? "Skipping Test file" : false;
+      },
       path: path.join(
         rootDir,
         ...targetBasePath,
@@ -100,7 +105,7 @@ const ComponentGenerator = {
     {
       type: "add",
       skip: () => {
-        return defaultConfig.skipStories ? "Skipping Story file" : false;
+        return skipStories ? "Skipping Story file" : false;
       },
       path: path.join(
         rootDir,
@@ -117,6 +122,9 @@ const ComponentGenerator = {
     },
     {
       type: "add",
+      skip: (data) => {
+        return skipTests && skipStories ? "Skipping Mock file" : false;
+      },
       path: path.join(
         rootDir,
         ...targetBasePath,

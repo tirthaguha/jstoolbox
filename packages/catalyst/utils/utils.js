@@ -23,6 +23,7 @@ const defaultConfig = {
   lang: isTypeScript() ? "ts" : "js",
   arch: "none",
   skipStories: false,
+  skipTests: false,
   storyFormat: "script", //TODO
   styling: "css",
   targetBasePath: "/src",

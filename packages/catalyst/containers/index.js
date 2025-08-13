@@ -13,6 +13,7 @@ const defaultConfig = getDefaultConfig();
 const rootBasePath = [".", "containers", "templates"];
 let targetBasePath = defaultConfig.targetBasePath.split("/");
 targetBasePath = [...targetBasePath, "containers"];
+const skipTests = defaultConfig.skipTests;
 
 const ContainerGenerator = {
   description: "Create a Container",
@@ -64,6 +65,9 @@ const ContainerGenerator = {
     },
     {
       type: "add",
+      skip: (data) => {
+        return skipTests ? "Skipping Story file" : false;
+      },
       path: path.join(
         rootDir,
         ...targetBasePath,
