@@ -1,6 +1,6 @@
 {
   "name": "@jstb/catalyst",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "React Functional Component Generator in Atomic and Lego architecture in JavaScript and TypeScript",
   "main": "index.js",
   "scripts": {
