@@ -1,0 +1,37 @@
+import { createContext, useReducer } from "react";
+import PropTypes from 'prop-types'
+
+const contextArr = {};
+
+const createContextProvider = (displayName, reducer, initialState) => {
+  const NewContext = createContext({
+    state: initialState,
+    dispatch: () => null,
+  });
+  NewContext.displayName = displayName;
+  contextArr[displayName] = NewContext;
+
+  const WithProvider = ({ children }) => {
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    return (
+      <NewContext.Provider value={{doubleCurlyOpen}} state, dispatch {{doubleCurlyClose}}>
+        {children}
+      </NewContext.Provider>
+    );
+  };
+
+  WithProvider.propTypes = {
+    children: PropTypes.elementType.isRequired,
+  };
+
+  return WithProvider;
+};
+
+export const getContextByName = (name) => {
+  if (contextArr[name]) return contextArr[name];
+  throw new Error("Context not found");
+};
+
+export default createContextProvider;

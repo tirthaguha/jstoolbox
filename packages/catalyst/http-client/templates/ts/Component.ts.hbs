@@ -1,0 +1,73 @@
+
+export interface IHttpError {
+  status: number;
+  statusText: string | object | unknown;
+}
+
+export interface IHttpResponse<T = any> {
+  data: T | null;
+  status: number;
+  statusText: string;
+  headers: Record<string, string>;
+  error?: IHttpError | null;
+}
+
+export interface IHttpRequest {
+  url: string;
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'OPTIONS';
+  headers?: Record<string, string>;
+  params?: Record<string, string | number | boolean>;
+}
+
+export interface IHttpClient {
+  fetch<T = any>(request: IHttpRequest): Promise<IHttpResponse<T>>;
+
+}
+
+class HttpClient implements IHttpClient {
+  async fetch<T = any>(request: IHttpRequest): Promise<IHttpResponse<T>> {
+    try {
+      const response = await fetch(request.url, {
+        method: request.method,
+        headers: request.headers,
+        body: request.method !== 'GET' && request.method !== 'HEAD' ? JSON.stringify(request.params) : undefined,
+      });
+
+      if (!response.ok) {
+        const error: IHttpError = {
+          status: response.status,
+          statusText: response.statusText,
+        };
+        return {
+          data: null,
+          status: response.status,
+          statusText: response.statusText,
+          headers: Object.fromEntries(response.headers.entries()),
+          error,
+        };
+      }
+
+      const data = (await response.json()) as T;
+      return {
+        data,
+        status: response.status,
+        statusText: response.statusText,
+        headers: Object.fromEntries(response.headers.entries()),
+      };
+    } catch (error) {
+      const httpError: IHttpError = {
+        status: 0,
+        statusText: error instanceof Error ? error.message : 'Unknown error',
+      };
+      return {
+        data: null,
+        status: httpError.status,
+        statusText: httpError.statusText,
+        headers: {},
+        error: httpError,
+      };
+    }
+
+    throw new Error('Method not implemented.');
+  }
+}
